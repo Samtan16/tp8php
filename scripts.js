@@ -1,11 +1,15 @@
 // JavaScript for tp7
 
 // function to load a file from the URL "fromFile" into the object indentified by "whereTo"
-function loadFileInto(fromFile, whereTo) {
+function loadFileInto(recipeName, listName, whereTo) {
 
   // creating a new XMLHttpRequest object
   ajax = new XMLHttpRequest();
-
+  
+  fromFile = "recipes.php?recipeName=" + recipeName + "&recipeList=" + listName;
+  
+  console.log("From URL: " + fromFile);
+  
   // defines the GET/POST method, source, and async value of the AJAX object
   ajax.open("GET", fromFile, true);
 
@@ -26,23 +30,20 @@ function loadFileInto(fromFile, whereTo) {
 }
 
 //new recipe object
-function Recipe(recipeName, contributorName, imageURL, ingredientsURL, equipmentURL, directionsURL) {
+function Recipe(recipeName, contributorName, imageURL) {
   
   this.recipeName = recipeName;
   this.contributor = contributorName;
   this.imageURL = imageURL;
-  this.ingredients = ingredientsURL;
-  this.equipment = equipmentURL;
-  this.directions = directionsURL;
   
   this.displayRecipe = function() {
     
     document.querySelector("#header h1").innerHTML = this.recipeName;
     document.querySelector("#contributor").innerHTML = this.contributor;
     document.querySelector("#header").style.backgroundImage = "url(" + this.imageURL + ")";
-    loadFileInto(this.ingredients, "#ingredients ul");
-    loadFileInto(this.equipment, "#equipment ul");
-    loadFileInto(this.directions, "#directions ol");
+    loadFileInto(this.recipe, "ingredients", "#ingredients ul");
+    loadFileInto(this.recipe, "equipment", "#equipment ul");
+    loadFileInto(this.recipe, "directions", "#directions ol");
   }
  
 }

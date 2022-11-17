@@ -1,4 +1,4 @@
-// JavaScript for tp7
+// JavaScript for tp8
 
 // function to load a file from the URL "fromFile" into the object indentified by "whereTo"
 function loadFileInto(recipeName, listName, whereTo) {
@@ -38,12 +38,14 @@ function Recipe(recipeName, contributorName, imageURL) {
   
   this.displayRecipe = function() {
     
+    console.log("recipeName:" + this.recipeName);
+    
     document.querySelector("#header h1").innerHTML = this.recipeName;
     document.querySelector("#contributor").innerHTML = this.contributor;
     document.querySelector("#header").style.backgroundImage = "url(" + this.imageURL + ")";
-    loadFileInto(this.recipe, "ingredients", "#ingredients ul");
-    loadFileInto(this.recipe, "equipment", "#equipment ul");
-    loadFileInto(this.recipe, "directions", "#directions ol");
+    loadFileInto(this.recipeName, "ingredients", "#ingredients ul");
+    loadFileInto(this.recipeName, "equipment", "#equipment ul");
+    loadFileInto(this.recipeName, "directions", "#directions ol");
   }
  
 }
@@ -58,7 +60,7 @@ function Recipe(recipeName, contributorName, imageURL) {
   );
 
   Tiramisu = new Recipe(
-    "Classic Tiramisù", 
+    "Classic Tiramisu", 
     "Alison Roman", 
     "https://static01.nyt.com/images/2017/04/05/dining/05COOKING-TIRAMISU1/05COOKING-TIRAMISU1-master768.jpg?w=1280&q=75", 
     "tiramisu-ingredients.html", 

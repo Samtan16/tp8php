@@ -22,7 +22,7 @@ if ($name == "Lemon Panko Crusted Salmon") {
      
   }
   
-} elseif ($name == "Tiramisu") {
+} elseif ($name == "Classic Tiramisu") {
   if ($list == "ingredients") {
     include "tiramisu-ingredients.html";
     
@@ -37,7 +37,7 @@ if ($name == "Lemon Panko Crusted Salmon") {
      
   }
   
-} elseif ($name == "Burger") {
+} elseif ($name == "Smashed Avocado-Chicken Burgers") {
   if ($list == "ingredients") {
     include "burger-ingredients.html";
     
